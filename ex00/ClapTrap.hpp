@@ -1,3 +1,6 @@
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+
 #include <iostream>
 
 class ClapTrap{
@@ -7,6 +10,7 @@ private:
 	int         _energyPoints;
 	int         _attackDamage;
 public:
+	ClapTrap(void);
 	ClapTrap(std::string);
 	ClapTrap(const ClapTrap& other);
 	~ClapTrap();
@@ -14,12 +18,6 @@ public:
 	void        attack(const std::string& target);
 	void        takeDamage(unsigned int amount);
 	void        beRepaired(unsigned int amount);
-
-	//getter
-	std::string getName();
-	std::string getHitPoints();
-	std::string getEnergyPoints();
-	std::string getAttackDamage();
 };
 
 /*
@@ -28,3 +26,5 @@ public:
  * Energy point : costs 1 by each attacking and repairing
  * Can't do anything if no Hit Point or energy points left
  */
+
+#endif

@@ -2,11 +2,16 @@
 
 ClapTrap::ClapTrap(void) : _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default Constructor Called\n";
+	std::cout << "ClapTrap Default Constructor Called\n";
 }
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " + name + " Constructor Called\n";
+}
+
+ClapTrap::ClapTrap(std::string name, int hp, int ep, int damage) : _name(name), _hitPoints(hp), _energyPoints(ep), _attackDamage(damage)
+{
+	std::cout << "ClapTrap " + name + " Manual Constructor Called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -20,7 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor Called, " + _name + " is to be destroyed\n";
+	std::cout << "ClapTrap Destructor Called, " + _name + " is to be destroyed\n";
 }
 
 ClapTrap&   ClapTrap::operator=(const ClapTrap& other)
