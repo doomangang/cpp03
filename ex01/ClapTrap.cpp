@@ -31,7 +31,7 @@ ClapTrap::~ClapTrap()
 ClapTrap&   ClapTrap::operator=(const ClapTrap& other)
 {
 	std::cout << "ClapTrap Copy assignment operator called, " + other._name + "'s to be copied\n";
-	if (*this != other)
+	if (this != &other)
 	{
 		this->_name = other._name;
 		this->_hitPoints = other._hitPoints;
@@ -49,7 +49,6 @@ void        ClapTrap::attack(const std::string& target)
 	}
 	std::cout << "ClapTrap " + _name + " attacks " + target + ", causing " << _attackDamage << " points of damage!\n";
 	_energyPoints--;
-	printStatus();
 }
 
 void        ClapTrap::takeDamage(unsigned int amount)
@@ -59,8 +58,8 @@ void        ClapTrap::takeDamage(unsigned int amount)
 		_hitPoints = -2147483648;
 	else
 		_hitPoints -= amount;
-	printStatus();
 }
+
 void        ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
@@ -73,13 +72,4 @@ void        ClapTrap::beRepaired(unsigned int amount)
 		_hitPoints = 2147483647;
 	else
 		_hitPoints += amount;
-	printStatus();
-}
-
-void    ClapTrap::printStatus(void) {
-	std::cout << "--------------\n" \
-				<< _name + "'s status:\n" \
-				<< "hp:\t" << _hitPoints << std::endl \
-				<< "ep:\t" << _energyPoints << std::endl \
-				<< "--------------\n";
 }

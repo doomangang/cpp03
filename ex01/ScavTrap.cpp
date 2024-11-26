@@ -35,7 +35,7 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap& other)
 void    ScavTrap::attack(const std::string& target)
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
-		std::cout << "ScavTrap" + _name + "is out of hit point or energy point, couldn't attack\n";
+		std::cout << "ScavTrap " + _name + " is out of hit point or energy point, couldn't attack\n";
 		return ;
 	}
 	std::cout << "ScavTrap " + _name + " attacks " + target + ", causing " << _attackDamage << " points of damage!\n";
@@ -45,7 +45,7 @@ void    ScavTrap::attack(const std::string& target)
 void ScavTrap::guardGate()
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
-		std::cout << "ScavTrap" + _name + "is out of hit point or energy point, couldn't attack\n";
+		std::cout << "ScavTrap " + _name + " is out of hit point or energy point, couldn't attack\n";
 		return ;
 	}
 	std::cout << "ScavTrap " + _name + " is now in Gate keeper mode\n";
