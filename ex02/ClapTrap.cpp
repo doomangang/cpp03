@@ -44,42 +44,31 @@ ClapTrap&   ClapTrap::operator=(const ClapTrap& other)
 void        ClapTrap::attack(const std::string& target)
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
-		std::cout << "ClapTrap " + _name + " is out of hit point or energy point, couldn't attack\n";
+		std::cout << "ClapTrap" + _name + "is out of hit point or energy point, couldn't attack\n";
 		return ;
 	}
-	std::cout << "ClapTrap " + _name + " attacks " + target + ", causing " << _attackDamage << " points of damage!\n";
+	std::cout << "ClapTrap " + _name + " attacks " + target + ", causing " + _attackDamage + " points of damage!\n";
 	_energyPoints--;
-	printStatus();
 }
 
 void        ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " + _name + " took damage, losing " << amount << " amount of hit points\n";
-	if (_hitPoints < static_cast<int>(-2147483648 + amount))
-		_hitPoints = -2147483648;
+	std::cout << "ClapTrap " + _name + "took damage, losing " + amount + " amount of hit points\n";
+	if (_hitPoints < INT32_MIN + amount)
+		_hitPoints = INT32_MIN;
 	else
 		_hitPoints -= amount;
-	printStatus();
 }
 void        ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
-		std::cout << "ClapTrap " + _name + " is out of hit point or energy point, couldn't be repaired\n";
+		std::cout << "ClapTrap " + _name + "is out of hit point or energy point, couldn't be repaired\n";
 		return ;
 	}
-	std::cout << "ClapTrap " + _name + " has been repaired " << amount << " amount of hit points\n";
+	std::cout << "ClapTrap " + _name + "has been repaired " + amount + " amount of hit points\n";
 	_energyPoints--;
-	if (_hitPoints > static_cast<int>(2147483647 - amount))
-		_hitPoints = 2147483647;
+	if (_hitPoints > INT32_MAX - amount)
+		_hitPoints = INT32_MAX;
 	else
 		_hitPoints += amount;
-	printStatus();
-}
-
-void    ClapTrap::printStatus(void) {
-	std::cout << "--------------\n" \
-				<< _name + "'s status:\n" \
-				<< "hp:\t" << _hitPoints << std::endl \
-				<< "ep:\t" << _energyPoints << std::endl \
-				<< "--------------\n";
 }

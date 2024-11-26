@@ -14,11 +14,5 @@ public:
 	ScavTrap&   operator=(const ScavTrap& other);
 	void        attack(cosnt std::string& target);
 	void        guardGate();
-	//for test
-	void            printStatus(void);
-	int             getHitPoint(void);
-	int             getEnergyPoint(void);
-	int             getAttackDamage(void);
 };
-
 #endif
