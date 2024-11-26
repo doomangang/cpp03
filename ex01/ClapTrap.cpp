@@ -1,5 +1,7 @@
 #include "ClapTrap.hpp"
 
+//constructors & destructor
+
 ClapTrap::ClapTrap(void) : _name("default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap Default Constructor Called\n";
@@ -28,6 +30,8 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap Destructor Called, " + _name + " is to be destroyed\n";
 }
 
+//op
+
 ClapTrap&   ClapTrap::operator=(const ClapTrap& other)
 {
 	std::cout << "ClapTrap Copy assignment operator called, " + other._name + "'s to be copied\n";
@@ -40,6 +44,8 @@ ClapTrap&   ClapTrap::operator=(const ClapTrap& other)
 	}
 	return (*this);
 }
+
+//functions
 
 void        ClapTrap::attack(const std::string& target)
 {
@@ -76,14 +82,6 @@ void        ClapTrap::beRepaired(unsigned int amount)
 	printStatus();
 }
 
-void            ClapTrap::printStatus() {
-	std::cout << "--------------\n" \
-				<< _name + "'s status:\n" \
-				<< "hp:\t" << _hitPoints << std::endl \
-				<< "ep:\t" << _energyPoints << std::endl \
-				<< "--------------\n";
-}
-
 //for test
 
 int             ClapTrap::getHitPoint() {
@@ -97,4 +95,12 @@ int             ClapTrap::getEnergyPoint(void)
 
 int             ClapTrap::getAttackDamage() {
 	return  (_attackDamage);
+}
+
+void            ClapTrap::printStatus() {
+	std::cout << "--------------\n" \
+				<< _name + "'s status:\n" \
+				<< "hp:\t" << _hitPoints << std::endl \
+				<< "ep:\t" << _energyPoints << std::endl \
+				<< "--------------\n";
 }

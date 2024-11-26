@@ -36,7 +36,8 @@ FragTrap&   FragTrap::operator=(const FragTrap &other)
 void    FragTrap::highFivesGuys()
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0)
-		std::cout << "FragTrap " + _name + "cannot do anything\n";
+		std::cout << "FragTrap " + _name + " is out of hit point or energy point, cannot do anything\n";
 	else
 		std::cout << "FragTrap " + _name + " requesting a positive high fives\n";
+	printStatus();
 }

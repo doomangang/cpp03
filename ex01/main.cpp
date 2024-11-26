@@ -30,13 +30,6 @@ int main (void)
 	// repair : one
 	std::cout << "-------------------------------------------------------------------" << "repair : one" << std::endl;
 	scavOne.beRepaired(UINT32_MAX);
-	// attack : one -> default
-	std::cout << "-------------------------------------------------------------------" << "attack : one -> default" << std::endl;
-	scavOne.attack("scavDefault");
-	scavDefault.takeDamage(scavOne.getAttackDamage());
-	// repair : default
-	std::cout << "-------------------------------------------------------------------" << "repair : default" << std::endl;
-	scavDefault.beRepaired(10);
 	//scavDefault in Gate Keeper mode
 	std::cout << "-------------------------------------------------------------------" << "scavDefault in Gate Keeper mode" << std::endl;;;
 	scavDefault.guardGate();

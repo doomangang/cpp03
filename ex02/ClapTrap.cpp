@@ -49,6 +49,7 @@ void        ClapTrap::attack(const std::string& target)
 	}
 	std::cout << "ClapTrap " + _name + " attacks " + target + ", causing " << _attackDamage << " points of damage!\n";
 	_energyPoints--;
+	printStatus();
 }
 
 void        ClapTrap::takeDamage(unsigned int amount)
@@ -76,14 +77,6 @@ void        ClapTrap::beRepaired(unsigned int amount)
 	printStatus();
 }
 
-void            ClapTrap::printStatus() {
-	std::cout << "--------------\n" \
-				<< _name + "'s status:\n" \
-				<< "hp:\t" << _hitPoints << std::endl \
-				<< "ep:\t" << _energyPoints << std::endl \
-				<< "--------------\n";
-}
-
 //for test
 
 int             ClapTrap::getHitPoint() {
@@ -97,4 +90,12 @@ int             ClapTrap::getEnergyPoint(void)
 
 int             ClapTrap::getAttackDamage() {
 	return  (_attackDamage);
+}
+
+void            ClapTrap::printStatus() {
+	std::cout << "--------------\n" \
+				<< _name + "'s status:\n" \
+				<< "hp:\t" << _hitPoints << std::endl \
+				<< "ep:\t" << _energyPoints << std::endl \
+				<< "--------------\n";
 }
