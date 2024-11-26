@@ -22,7 +22,7 @@ ScavTrap::~ScavTrap()
 ScavTrap&   ScavTrap::operator=(const ScavTrap& other)
 {
 	std::cout << "ScavTrap Copy assignment operator called, " + other._name + "'s to be copied\n";
-	if (*this != other)
+	if (this != &other)
 	{
 		this->_name = other._name;
 		this->_hitPoints = other._hitPoints;
@@ -35,17 +35,18 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap& other)
 void    ScavTrap::attack(const std::string& target)
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
-		std::cout << "ScavTrap" + _name + "is out of hit point or energy point, couldn't attack\n";
+		std::cout << "ScavTrap " + _name + " is out of hit point or energy point, couldn't attack\n";
 		return ;
 	}
-	std::cout << "ScavTrap " + _name + " attacks " + target + ", causing " + _attackDamage + " points of damage!\n";
+	std::cout << "ScavTrap " + _name + " attacks " + target + ", causing " << _attackDamage << " points of damage!\n";
 	_energyPoints--;
+	printStatus();
 }
 
 void ScavTrap::guardGate()
 {
 	if (_hitPoints <= 0 || _energyPoints <= 0){
-		std::cout << "ScavTrap" + _name + "is out of hit point or energy point, couldn't attack\n";
+		std::cout << "ScavTrap " + _name + " is out of hit point or energy point, couldn't attack\n";
 		return ;
 	}
 	std::cout << "ScavTrap " + _name + " is now in Gate keeper mode\n";

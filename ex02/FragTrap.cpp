@@ -23,7 +23,7 @@ FragTrap::~FragTrap()
 FragTrap&   FragTrap::operator=(const FragTrap &other)
 {
 	std::cout << "FragTrap Copy assignment operator called, " + other._name + "'s to be copied\n";
-	if (*this != other)
+	if (this != &other)
 	{
 		this->_name = other._name;
 		this->_hitPoints = other._hitPoints;
@@ -35,5 +35,8 @@ FragTrap&   FragTrap::operator=(const FragTrap &other)
 
 void    FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " + _name + "requesting a positive high fives\n";
+	if (_hitPoints <= 0 || _energyPoints <= 0)
+		std::cout << "FragTrap " + _name + "cannot do anything\n";
+	else
+		std::cout << "FragTrap " + _name + " requesting a positive high fives\n";
 }

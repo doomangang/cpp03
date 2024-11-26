@@ -58,6 +58,7 @@ void        ClapTrap::takeDamage(unsigned int amount)
 		_hitPoints = -2147483648;
 	else
 		_hitPoints -= amount;
+	printStatus();
 }
 
 void        ClapTrap::beRepaired(unsigned int amount)
@@ -72,4 +73,28 @@ void        ClapTrap::beRepaired(unsigned int amount)
 		_hitPoints = 2147483647;
 	else
 		_hitPoints += amount;
+	printStatus();
+}
+
+void            ClapTrap::printStatus() {
+	std::cout << "--------------\n" \
+				<< _name + "'s status:\n" \
+				<< "hp:\t" << _hitPoints << std::endl \
+				<< "ep:\t" << _energyPoints << std::endl \
+				<< "--------------\n";
+}
+
+//for test
+
+int             ClapTrap::getHitPoint() {
+	return (_hitPoints);
+}
+
+int             ClapTrap::getEnergyPoint(void)
+{
+	return (_energyPoints);
+}
+
+int             ClapTrap::getAttackDamage() {
+	return  (_attackDamage);
 }

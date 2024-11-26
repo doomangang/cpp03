@@ -20,12 +20,12 @@ public:
 	void            takeDamage(unsigned int amount);
 	void            beRepaired(unsigned int amount);
 
-	//getter
-	std::string     getName();
-	std::string     getHitPoints();
-	std::string     getEnergyPoints();
-	std::string     getAttackDamage();
-};
+	//for test
+	int             getHitPoint(void);
+	int             getEnergyPoint(void);
+	int             getAttackDamage(void);
+	void            printStatus();
+	};
 
 /*
  * Attack : target loses <attack damage> hit points

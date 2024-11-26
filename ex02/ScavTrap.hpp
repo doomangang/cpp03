@@ -12,7 +12,14 @@ public:
 	ScavTrap(const ScavTrap& other);
 	~ScavTrap();
 	ScavTrap&   operator=(const ScavTrap& other);
-	void        attack(cosnt std::string& target);
+	void        attack(const std::string& target);
 	void        guardGate();
 };
+
 #endif
+
+/*
+ * inherit the constructors and destructor from Clap- Trap
+ * constructors, destructor and attack() will print different messages.
+ * ClapTraps are aware of their individuality.
+ * */

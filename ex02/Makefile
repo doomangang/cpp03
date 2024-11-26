@@ -3,9 +3,9 @@ NAME	= fragtrap
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS	= ClapTrap.cpp
-          FragTrap.cpp
-          ScavTrap.cpp
+SRCS	= ClapTrap.cpp\
+          FragTrap.cpp\
+          ScavTrap.cpp\
           main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)

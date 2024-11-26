@@ -40,6 +40,7 @@ void    ScavTrap::attack(const std::string& target)
 	}
 	std::cout << "ScavTrap " + _name + " attacks " + target + ", causing " << _attackDamage << " points of damage!\n";
 	_energyPoints--;
+	printStatus();
 }
 
 void ScavTrap::guardGate()
@@ -49,26 +50,4 @@ void ScavTrap::guardGate()
 		return ;
 	}
 	std::cout << "ScavTrap " + _name + " is now in Gate keeper mode\n";
-}
-
-//for test
-void            ScavTrap::printStatus() {
-	std::cout << "--------------\n" \
-				<< _name + "'s status:\n" \
-				<< "hp:\t" << _hitPoints << std::endl \
-				<< "ep:\t" << _energyPoints << std::endl \
-				<< "--------------\n";
-}
-
-int             ScavTrap::getHitPoint() {
-	return (_hitPoints);
-}
-
-int             ScavTrap::getEnergyPoint(void)
-{
-	return (_energyPoints);
-}
-
-int             ScavTrap::getAttackDamage() {
-	return  (_attackDamage);
 }

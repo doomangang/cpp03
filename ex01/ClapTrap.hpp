@@ -19,7 +19,13 @@ public:
 	virtual void    attack(const std::string& target);
 	void            takeDamage(unsigned int amount);
 	void            beRepaired(unsigned int amount);
-};
+
+	//for test
+	int             getHitPoint(void);
+	int             getEnergyPoint(void);
+	int             getAttackDamage(void);
+	void            printStatus();
+	};
 
 /*
  * Attack : target loses <attack damage> hit points
